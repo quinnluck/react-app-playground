@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
-function CounterButton() {
+function CounterButton(props) {
     let [counter, setCounter] = useState(0);
+    let { valueToIncrement } = props
 
     return (
-        <button>TEST</button>
+        <button onClick={() => setCounter(counter + valueToIncrement)} >{counter}</button>
     );
 }
 
