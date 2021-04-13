@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from "react";
 
 function CounterButton() {
-    return <button>TEST</button>
+    let [counter, setCounter] = useState(0);
+
+    return (
+        <button>TEST</button>
+    );
 }
 
 export default CounterButton
