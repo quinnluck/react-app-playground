@@ -10,4 +10,4 @@ function CounterButton(props) {
 }
 
 export default CounterButton
-//ReactDOM.render(<CounterButton/>, document.getElementById('mountNode'));
+//ReactDOM.render(<CounterButton/>, document.getElementById('root'));
