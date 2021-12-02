@@ -1,8 +1,6 @@
 import React from "react";
 import "../CardsApp.css"
 
-/* api.github.com/users/<username> */
-
 class Card extends React.Component {
 
     render() {
@@ -10,7 +8,7 @@ class Card extends React.Component {
 
         return (
             <div className="github-profile">
-                <img src={avatar_url} />
+                <img src={avatar_url} alt="" />
                 <div className="info">
                     <div className="name">{name}</div>
                     <div className="company">{company}</div>

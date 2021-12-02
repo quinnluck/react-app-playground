@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 class Form extends React.Component{
 
@@ -21,9 +22,11 @@ class Form extends React.Component{
         );
     }
 
-    _handleSubmit = (event) => {
+    _handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(this.state.username)
+        const response = await axios.get(`https://api.github.com/users/${this.state.username}`);
+        this.props.onSubmit(response.data);
+        this.setState({ username: "" });
     }
 }
 

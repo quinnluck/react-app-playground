@@ -1,23 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import "../CardsApp/CardsApp.css";
 import CardList from "./components/CardList.jsx";
 import Form from "./components/Form";
 
-const testData = [
-    {name: "Dan Abramov", avatar_url: "https://avatars0.githubusercontent.com/u/810438?v=4", company: "@facebook"},
-    {name: "Sophie Alpert", avatar_url: "https://avatars2.githubusercontent.com/u/6820?v=4", company: "Humu"},
-    {name: "Sebastian Markbåge", avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4", company: "Facebook"},
-];
+//Github usernames: gaearon, sophiebits, sebmarkbage, bvaughn, quinnluck
 
-const CardsApp = () => {
-    const [profiles, setProfiles] = useState(testData);
 
-    return(
-        <div className="header">
-            <Form />
-            <CardList profiles={profiles} />
-        </div>
-    );
+class CardsApp extends React.Component {
+
+    state = {
+        profiles: []
+    }
+
+    render(){
+        return(
+            <div className="header">
+                <Form onSubmit={this._addNewProfile}/>
+                <CardList profiles={this.state.profiles} />
+            </div>
+        );
+    }
+
+    _addNewProfile = (profileData) => {
+        this.setState(prevState => ({ profiles: [ ...prevState.profiles, profileData ]}))
+        console.log("CardsApp", profileData);
+    }
 }
 
 export default CardsApp
